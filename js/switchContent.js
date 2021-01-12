@@ -5,6 +5,7 @@ function goHome(){
     document.getElementById("homebtn").classList = ["active"];
     document.getElementById("linkbtn").classList = null;
     document.getElementById("otherbtn").classList = null;
+    sa_event("click_home");
 }
 
 function goLinks(){
@@ -14,6 +15,7 @@ function goLinks(){
     document.getElementById("homebtn").classList = null;
     document.getElementById("linkbtn").classList = ["active"];
     document.getElementById("otherbtn").classList = null;
+    sa_event("click_links");
 }
 
 function goOther(){
@@ -23,4 +25,5 @@ function goOther(){
     document.getElementById("homebtn").classList = null;
     document.getElementById("linkbtn").classList = null;
     document.getElementById("otherbtn").classList = ["active"];
+    sa_event("click_others");
 }

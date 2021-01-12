@@ -12,7 +12,6 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-        <script type="text/javascript" src="js/checkDNT.js"></script>
         <script type="text/javascript" src="js/switchContent.js"></script>
     <body>
         <div class="header">
@@ -50,9 +49,12 @@
             It appears that you have DNT enabled. Your page view will not be recorded.
         </div>
         <noscript class="noscript">
+            <style>.header{display:none;} .content{display:none;} .bottom{display: none;} .bottom-notice{display: none;}</style>
             Please enable JavaScript to view this page.
         </noscript>
+        <script type="text/javascript" src="js/checkDNT.js"></script>
+        <script>window.sa_event=window.sa_event||function(){a=[].slice.call(arguments);sa_event.q?sa_event.q.push(a):sa_event.q=[a]};</script>
         <script async defer src="https://sa.samyo.wtf/latest.js"></script>
-        <noscript><img src="https://sa.samyo.wtf/noscript.gif" alt=""/></noscript>
+        <noscript><img src="https://sa.samyo.wtf/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
     </body>
 </html>
