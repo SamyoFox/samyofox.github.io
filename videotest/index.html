@@ -1,47 +1,53 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">     
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="Yosho">
-        <meta property="og:description" content="is the biggest cute on earth">
-        <meta property="og:url" content="https://samyocord.github.io">
-        <meta property="og:image" content="https://samyocord.github.io/img/favicon.ico">
-        <title>SamyoFox</title>
-        <link rel="shortcut icon" type="image/icon" href="img/favicon.ico"> 
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link rel="stylesheet" type="text/css" href="https://unpkg.com/plyr@3/dist/plyr.css">
+        <meta charset="UTF-8">
+        <title>Video Test</title>
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.6.4/plyr.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-        <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"></script>
-        <script src="https://unpkg.com/plyr@3"></script>
+        <script src="https://cdn.plyr.io/3.6.4/plyr.polyfilled.js"></script>
         <style>
             .container {
-                margin: 50px auto;
-                max-width: 1500px;
-            }   
+                margin: 20px auto;
+                width: 600px;
+            }
+            video {
+                width: 100%;
+            }
         </style>
     <body>
         <div class="container">
             <video controls crossorigin playsinline></video>
         </div>
-        <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+        <script src="https://cdn.rawgit.com/video-dev/hls.js/18bb552/dist/hls.min.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
-                // First real dialog starts around 1:47
                 const source = 'https://cdn.samyofox.ninja/streamtest/video.m3u8';
-                // For more dash options, see https://github.com/Dash-Industry-Forum/dash.js
-                const dash = dashjs.MediaPlayer().create();
                 const video = document.querySelector('video');
-                dash.initialize(video, source, true);
-
-                // Update caption tracks after initializing Plyr to get the generated captions
+                
                 // For more options see: https://github.com/sampotts/plyr/#options
-                const player = new Plyr(video, {captions: {active: true, update: true}});
-
-                // Expose player and dash so they can be used from the console
+                // captions.update is required for captions to work with hls.js
+                const player = new Plyr(video, {captions: {active: true, update: true, language: 'en'}});
+                
+                if (!Hls.isSupported()) {
+                    video.src = source;
+                } else {
+                    // For more Hls.js options, see https://github.com/dailymotion/hls.js
+                    const hls = new Hls();
+                    hls.loadSource(source);
+                    hls.attachMedia(video);
+                    window.hls = hls;
+                    
+                    // Handle changing captions
+                    player.on('languagechange', () => {
+                        // Caption support is still flaky. See: https://github.com/sampotts/plyr/issues/994
+                        setTimeout(() => hls.subtitleTrack = player.currentTrack, 50);
+                    });
+                }
+                
+                // Expose player so it can be used from the console
                 window.player = player;
-                window.dash = dash;
             });
         </script>
     </body>
