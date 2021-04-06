@@ -12,6 +12,17 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.plyr.io/3.6.4/plyr.polyfilled.js"></script>
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.6.4/plyr.css" />
+        <style>
+            .container {
+                margin: 20px auto;
+                width: 600px;
+            }
+            video {
+                width: 100%;
+            }
+        </style>
     <body>
         <div class="header">
             <a href="https://samyocord.github.io" id="maintext" class="samyofox">SamyoFox</a>
@@ -19,6 +30,11 @@
         <div class="content">
             <div id="home">
                 <h1 style="font-size: 72px;">Yosho is a cutie <3</h1>
+                <div class="container">
+                    <video controls crossorigin playsinline>
+                        <source src="https://cdn.samyofox.ninja/yosho/64b25718105f4352ab9e51827eb6bf07.m3u8" type="application/x-mpegURL"/>
+                    </video>
+                </div>
             </div>
         </div>
         <div class="bottom" style="color: #939393;">
@@ -31,6 +47,47 @@
             <style>.header{display:none;} .content{display:none;} .bottom{display: none;} .bottom-notice{display: none;}</style>
             Please enable JavaScript to view this page.
         </noscript>
+        <script src="https://cdn.rawgit.com/video-dev/hls.js/18bb552/dist/hls.min.js"></script>
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        const video = document.querySelector("video");
+                        const source = video.getElementsByTagName("source")[0].src;
+                        
+                        // For more options see: https://github.com/sampotts/plyr/#options
+                        // captions.update is required for captions to work with hls.js
+                        const defaultOptions = {};
+        
+                        if (Hls.isSupported()) {
+                            // For more Hls.js options, see https://github.com/dailymotion/hls.js
+                            const hls = new Hls();
+                            hls.loadSource(source);
+        
+                            // From the m3u8 playlist, hls parses the manifest and returns
+                            // all available video qualities. This is important, in this approach,
+                            // we will have one source on the Plyr player.
+                            hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+        
+                            // Initialize here
+                            const player = new Plyr(video, defaultOptions);
+                            });
+                            hls.attachMedia(video);
+                            window.hls = hls;
+                        } else {
+                            // default options with no quality update in case Hls is not supported
+                            const player = new Plyr(video, defaultOptions);
+                        }
+        
+                        function updateQuality(newQuality) {
+                            window.hls.levels.forEach((level, levelIndex) => {
+                            if (level.height === newQuality) {
+                                console.log("Found quality match with " + newQuality);
+                                window.hls.currentLevel = levelIndex;
+                            }
+                            });
+                        }
+                        });
+        
+                </script>
         <script type="text/javascript" src="js/checkDNT.js"></script>
         <script>window.sa_event=window.sa_event||function(){a=[].slice.call(arguments);sa_event.q?sa_event.q.push(a):sa_event.q=[a]};</script>
         <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
