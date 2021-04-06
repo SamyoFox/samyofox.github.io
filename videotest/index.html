@@ -42,43 +42,9 @@
                     // we will have one source on the Plyr player.
                     hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
 
-                    // Transform available levels into an array of integers (height values).
-                    const availableQualities = hls.levels.map((l) => l.height)
-
-                    // Add new qualities to option
-                    defaultOptions.quality = {
-                        default: availableQualities[0],
-                        options: availableQualities,
-                        // this ensures Plyr to use Hls to update quality level
-                        forced: true,        
-                        onChange: (e) => updateQuality(e),
-                    }
-
                     // Initialize here
                     const player = new Plyr(video, defaultOptions);
                     });
-                    player.source = {
-                        type: 'video',
-                        title: 'Paul',
-                        sources: [
-                            {
-                                src: '7e0191083d434b70b37c3fd4cfa9257b.m3u8',
-                                type: 'application/x-mpegURL',
-                                size: 480
-                            },
-                            {
-                                src: '66bfe9cdf420422ba4b94f8306d7be91.m3u8',
-                                type: 'application/x-mpegURL',
-                                size: 720
-                            },
-                            {
-                                src: '1f24a76c8c474271bf4a96ffa0c9a27d.m3u8',
-                                type: 'application/x-mpegURL',
-                                size: 1080
-                            },
-                            
-                        ]
-                    }
                     hls.attachMedia(video);
                     window.hls = hls;
                 } else {
