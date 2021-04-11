@@ -5,23 +5,38 @@
         <meta property="og:type" content="website">
         <meta property="og:title" content="SamyoFox">
         <meta property="og:description" content="it's my website">
-        <meta property="og:url" content="https://samyo.wtf">
-        <meta property="og:image" content="https://samyo.wtf/img/favicon.ico">
+        <meta property="og:url" content="https://samyofox.ninja">
+        <meta property="og:image" content="https://samyofox.ninja/img/favicon.png">
         <title>SamyoFox</title>
         <link rel="shortcut icon" type="image/icon" href="img/favicon.ico"> 
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Product+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <script src="https://cdn.plyr.io/3.6.4/plyr.polyfilled.js"></script>
         <script type="text/javascript" src="js/switchContent.js"></script>
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.6.4/plyr.css" />
     <body>
-        <div class="header">
+        <nav class="grey darken-3">
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo" onclick="goHome()">&nbsp;&nbsp;&nbsp;SamyoFox</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li id="homebtn" class="active"><a onclick="goHome()" href="#"><i class="material-icons left">home</i>Home</a></li>
+                <li id="linkbtn"><a onclick="goLinks()" href="#"><i class="material-icons left">link</i>Links</a></li>
+                <li id="otherbtn"><a onclick="goOther()" href="#"><i class="material-icons left">more_horiz</i>Other stuff</a></li>
+              </ul>
+            </div>
+          </nav>
+        <!--div class="header">
             <a href="#" id="maintext" class="samyofox">SamyoFox</a>
             <div class="header-right">
               <a onclick="goHome()" id="homebtn" class="active" href="#">Home</a>
               <a onclick="goLinks()" id="linkbtn" href="#">Links</a>
               <a onclick="goOther()" id="otherbtn" href="#">Other stuff</a>
             </div>
-          </div>
+          </div -->
         <div class="content">
             <div id="home">
                 <h1 style="font-size: 72px;">Hewwo!</h1>
@@ -29,31 +44,63 @@
             </div>
             <div id="links" style="display: none;">
                 <h1>Links</h1>
-                <a href="https://twitter.com/SamyoFox">Twitter</a>
+                <a href="#" onclick="goTwitter()">Twitter</a>
                 <br>
-                <a href="https://github.com/SamyoFox">GitHub</a>
+                <a href="#" onclick="goGitHub()">GitHub</a>
                 <br>
-                <a href="https://reddit.com/user/Samyocord">Reddit</a>
+                <a href="#" onclick="goReddit()">Reddit</a>
                 <br>
-                <a href="https://furaffinity.net/user/Samyocord">FurAffinity (I rarely use it)</a>
+                <a href="#" onclick="goFA()">FurAffinity (I rarely use it)</a>
             </div>
             <div id="other" style="display: none;">
-                <a href="https://le-fishe.cloud"><h1>Nothing here yet!</h1></a>
+                <a><h1>Nothing here yet!</h1></a>
+                <center>
+                    <div class="containervideo" width="480" height="360">
+                        <video id="fishe" controls crossorigin playsinline>
+                            <source src="https://cdn.samyofox.ninja/lefishe/lefishe.m3u8" type="application/x-mpegURL"/>
+                        </video>
+                    </div>
+                </center>          
             </div>
         </div>
-        <div class="bottom" style="color: #939393;">
-            Made by <a style="color: white;" href="https://twitter.com/SamyoFox">SamyoFox</a> OwO
-        </div>
-        <div class="bottom-notice" style="display: none; color: #939393;" id="dnt-notice">
+        <!--div class="bottom" style="color: #939393;">
+            Made by <a style="color: white;" href="#" onclick="goTwitter()">SamyoFox</a> uwu
+        </div-->
+        <!--div class="bottom-notice" style="display: none; color: #939393;" id="dnt-notice">
             It appears that you have DNT enabled. Your page view will not be recorded.
-        </div>
+        </div-->
         <noscript class="noscript">
             <style>.header{display:none;} .content{display:none;} .bottom{display: none;} .bottom-notice{display: none;}</style>
             Please enable JavaScript to view this page.
         </noscript>
+        <script src="https://cdn.rawgit.com/video-dev/hls.js/18bb552/dist/hls.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const video = document.querySelector("video");
+                const source = video.getElementsByTagName("source")[0].src;
+
+                const defaultOptions = {};
+
+                if (Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(source);
+
+                    hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+
+                    const player = new Plyr(video, defaultOptions);
+                    });
+                    hls.attachMedia(video);
+                    window.hls = hls;
+                } else {
+                    const player = new Plyr(video, defaultOptions);
+                }
+                });
+
+        </script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript" src="js/checkDNT.js"></script>
         <script>window.sa_event=window.sa_event||function(){a=[].slice.call(arguments);sa_event.q?sa_event.q.push(a):sa_event.q=[a]};</script>
-        <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-        <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""/></noscript>
+        <script async defer src="https://ext.samyofox.ninja/latest.js"></script>
+        <noscript><img src="https://ext.samyofox.ninja/noscript.gif" alt=""/></noscript>
     </body>
 </html>
