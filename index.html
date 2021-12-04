@@ -1,118 +1,164 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">     
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="SamyoFox">
-        <meta property="og:description" content="it's my website">
-        <meta property="og:url" content="https://samyofox.ninja">
-        <meta property="og:image" content="https://samyofox.ninja/img/favicon.png">
-        <title>SamyoFox</title>
-        <link rel="shortcut icon" type="image/icon" href="img/favicon.ico"> 
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Product+Sans&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-        <script src="https://cdn.plyr.io/3.6.4/plyr.polyfilled.js"></script>
-        <script type="text/javascript" src="js/switchContent.js"></script>
-        <link rel="stylesheet" href="https://cdn.plyr.io/3.6.4/plyr.css" />
-<!-- Hotjar Tracking Code for samyofox.ninja -->
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:2485539,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-    <body>
-        <nav class="grey darken-3">
-            <div class="nav-wrapper">
-              <a href="#" class="brand-logo" onclick="goHome()">&nbsp;&nbsp;&nbsp;SamyoFox</a>
-              <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li id="homebtn" class="active"><a onclick="goHome()" href="#"><i class="material-icons left">home</i>Home</a></li>
-                <li id="linkbtn"><a onclick="goLinks()" href="#"><i class="material-icons left">link</i>Links</a></li>
-                <li id="otherbtn"><a onclick="goOther()" href="#"><i class="material-icons left">more_horiz</i>Other stuff</a></li>
-              </ul>
-            </div>
-          </nav>
-        <!--div class="header">
-            <a href="#" id="maintext" class="samyofox">SamyoFox</a>
-            <div class="header-right">
-              <a onclick="goHome()" id="homebtn" class="active" href="#">Home</a>
-              <a onclick="goLinks()" id="linkbtn" href="#">Links</a>
-              <a onclick="goOther()" id="otherbtn" href="#">Other stuff</a>
-            </div>
-          </div -->
-        <div class="content">
-            <div id="home">
-                <h1 style="font-size: 72px;">Hewwo!</h1>
-                <p style="font-size: 48px;">It's me, SamyoFox</p>
-            </div>
-            <div id="links" style="display: none;">
-                <h1>Links</h1>
-                <a href="#" onclick="goTwitter()">Twitter</a>
-                <br>
-                <a href="#" onclick="goGitHub()">GitHub</a>
-                <br>
-                <a href="#" onclick="goReddit()">Reddit</a>
-                <br>
-                <a href="#" onclick="goFA()">FurAffinity (I rarely use it)</a>
-            </div>
-            <div id="other" style="display: none;">
-                <a><h1>Nothing here yet!</h1></a>
-                <center>
-                    <div class="containervideo" width="480" height="360">
-                        <video id="fishe" controls crossorigin playsinline>
-                            <source src="https://video-cdn.samyofox.ninja/a53df17764864629b8d507b2537e09aa829be42efc064f5288b8d67925ccca22/d3fa6d946880478491fb34da131db5f5.m3u8" type="application/x-mpegURL"/>
-                        </video>
-                        <a href="https://twitter.com/Jack_xDD/status/1450578368856985604">Source</a>
-                    </div>
-                </center>          
-            </div>
-        </div>
-        <!--div class="bottom" style="color: #939393;">
-            Made by <a style="color: white;" href="#" onclick="goTwitter()">SamyoFox</a> uwu
-        </div-->
-        <!--div class="bottom-notice" style="display: none; color: #939393;" id="dnt-notice">
-            It appears that you have DNT enabled. Your page view will not be recorded.
-        </div-->
-        <noscript class="noscript">
-            <style>.header{display:none;} .content{display:none;} .bottom{display: none;} .bottom-notice{display: none;}</style>
-            Please enable JavaScript to view this page.
-        </noscript>
-        <script src="https://cdn.rawgit.com/video-dev/hls.js/18bb552/dist/hls.min.js"></script>
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content= "width=device-width, user-scalable=no, initial-scale=0.8">
+		<meta charset="utf-8"/>
+
+		<title> SamyoFox </title>
+		
+		<link rel="canonical" href="https://samyofox.ninja">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
+
+		<meta name="twitter:card" content="summary"/>
+		<meta name="twitter:site" content="@SamyoFox"/>
+		<meta name="twitter:title" content="SamyoFox's website"/>
+		<meta name="twitter:image" content="img/pic.png"/>
+		<meta name="og:locale" content="en_US"/>
+		<meta name="og:title" content="SamyoFox's website"/>
+		<meta name="og:image" content="img/pic.png"/>
+		<meta name="og:url" content="https://samyofox.ninja/"/>
+
+		<meta name="copyright" content="Copyright 2021 SamyoFox">
+		<meta name="description" content="SamyoFox's website">
+
+		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	    <script async src='cdn-cgi/challenge-platform/h/g/scripts/invisible.js'></script>
+        <script>window.sa_event=window.sa_event||function(){var a=[].slice.call(arguments);window.sa_event.q?window.sa_event.q.push(a):window.sa_event.q=[a]};</script>
+        <!-- Hotjar Tracking Code for samyofox.ninja -->
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const video = document.querySelector("video");
-                const source = video.getElementsByTagName("source")[0].src;
-
-                const defaultOptions = {};
-
-                if (Hls.isSupported()) {
-                    const hls = new Hls();
-                    hls.loadSource(source);
-
-                    hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
-
-                    const player = new Plyr(video, defaultOptions);
-                    });
-                    hls.attachMedia(video);
-                    window.hls = hls;
-                } else {
-                    const player = new Plyr(video, defaultOptions);
-                }
-                });
-
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:2485539,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
         </script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script type="text/javascript" src="js/checkDNT.js"></script>
-        <script>window.sa_event=window.sa_event||function(){a=[].slice.call(arguments);sa_event.q?sa_event.q.push(a):sa_event.q=[a]};</script>
+    </head>
+
+	<body>
+		<div class="background"></div>
+		<div class="page">
+			<noscript>
+				<h1>Imagine not enabling JavaScript.</h1>
+				<h2 class="subtext">Please enable JavaScript</h2>
+			</noscript>
+
+			<input id="copyDiscordFakeElement" value="SamyoFox#9179">
+            <input id="copyEmailFakeElement" value="samyofox@protonmail.com">
+            
+
+			<div id="oldBrowser" class="hidden">
+				<h1>Your browser sucks.</h1>
+				<h2 class="subtext">Upgrade your browser.</h2>
+			</div>
+			<div id="header" class="header">
+				<img src="img/pic.png" class="avatar">
+				<h1 id="samyofox" class="samyofox"> SamyoFox </h1>
+				<picture class="fullbody">
+					<source type="image/webp" srcset="img/body.webp">
+					<img src="img/body.png" alt="SamyoFox body image">
+				</picture>
+			</div>
+
+			<div class="tabs">
+				<a class="tab tab1 tabSelected" href="/"><i class="material-icons">info_outline</i>About</a>
+				<a class="tab tab2" href="/stuff"><i class="material-icons">class</i>Stuff</a>
+			</div>
+
+			<div class="sections">
+				<div class="sectionList" data-current-section="1">
+
+					<div class="section section1 sectionSelected">
+						<div class="openingSection">
+							<h2> Hewwo </h2>
+							<p>I'm SamyoFox. I'm a gay furry who likes coding.</p>
+							<!--<a href="/ref">Looking for my ref?</a>-->
+						</div>
+						<div class="articleGrid three">
+							<a href="https://twitter.com/SamyoFox" onclick="sa_event('click_twitter')" class="article" target="_blank">
+								<!-- <img src="/img/contact/twitter.png" width="64px" height="64px"> -->
+								<picture width="64px" height="64px">
+									<source srcset="img/about/Twitter/Twitter.webp 1x, img/about/Twitter/Twitter@2x.webp 2x" type="image/webp">
+									<source srcset="img/about/Twitter/Twitter.png 1x, img/about/Twitter/Twitter@2x.png 2x" type="image/png">
+									<img src="img/about/Twitter/Twitter.png" alt="Twitter logo">
+								</picture>
+								<div class="articleText"><b class="articleName">Twitter</b>
+								<p>@SamyoFox</p></div>
+							</a>
+							<a href="#" onclick="sa_event('click_discord')" class="article"  id="discordCopy">
+								<div class="discordText">
+									<picture width="64px" height="64px">
+										<source srcset="img/about/Discord/Discord.webp 1x, img/about/Discord/Discord@2x.webp 2x" type="image/webp">
+										<source srcset="img/about/Discord/Discord.png 1x, img/about/Discord/Discord@2x.png 2x" type="image/png">
+										<img src="img/about/Discord/Discord.png" alt="Discord logo">
+									</picture>
+									<div class="articleText"><b class="articleName">Discord</b>
+									<p>SamyoFox#9179</p></div>
+								</div>
+								<div class="copiedText">
+									<span class="material-icons">content_paste</span>
+									Copied to clipboard
+                                </div>
+							</a>
+							<a href="https://t.me/SamyoFox" onclick="sa_event('click_telegram')" class="article" target="_blank">
+								<picture width="64px" height="64px">
+									<source srcset="img/about/Telegram/Telegram.webp 1x, img/about/Telegram/Telegram@2x.webp 2x" type="image/webp">
+									<source srcset="img/about/Telegram/Telegram.png 1x, img/about/Telegram/Telegram@2x.png 2x" type="image/png">
+									<img src="img/about/Telegram/Telegram.png" alt="Telegram logo">
+								</picture>
+								<div class="articleText"><b class="articleName">Telegram</b>
+								<p>@SamyoFox</p></div>
+							</a>
+                            <a href="https://github.com/SamyoFox" onclick="sa_event('click_github')" class="article" target="_blank">
+								<picture width="64px" height="64px">
+									<source srcset="img/about/GitHub/GitHub.webp 1x, img/about/GitHub/GitHub@2x.webp 2x" type="image/webp">
+									<source srcset="img/about/GitHub/GitHub.png 1x, img/about/GitHub/GitHub@2x.png 2x" type="image/png">
+									<img src="img/about/GitHub/GitHub.png" alt="GitHub logo">
+								</picture>
+								<div class="articleText"><b class="articleName">GitHub</b>
+								<p>SamyoFox</p></div>
+							</a>
+						</div>
+						<div class="spacingHack"></div>
+						<div class="spacingHack"></div>
+						<a class="copyrightLink">&copy; 2021 SamyoFox</a>
+					</div>
+					<div class="section section2">
+						<div class="articleGrid">
+							<a href="https://github.com/Fisch03/Hanako-Discord" onclick="sa_event('go_hanako')" class="article" target="_blank">
+								<i class="material-icons">smart_toy</i>
+								<div class="articleText"><b class="articleName">Hanako Discord</b>
+								<p>A Discord bot a friend and I made</p></div>
+							</a>
+                            <a href="https://github.com/FlyTechVideos/BluescreenSimulator" onclick="sa_event('go_bsodsim')" class="article" target="_blank">
+								<i class="material-icons">apps</i>
+								<div class="articleText"><b class="articleName">Bluescreen Simulator</b>
+								<p>A program by FlyTech Videos I contribute to</p></div>
+							</a>
+                            <a href="https://samyofox.itch.io/fof" onclick="sa_event('go_fof')" class="article" target="_blank">
+								<i class="material-icons">sports_esports</i>
+								<div class="articleText"><b class="articleName">Fields of Forces</b>
+								<p>A game I made together with a friend for a game jam!</p></div>
+							</a>
+                            
+						</div>
+						<div class="spacingHack"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modalContainer">
+		</div>
+        <script src="index.js"></script>
+        <script src="PlatformInfoStandalone.min.js"></script>
         <script async defer src="https://ext.samyofox.ninja/latest.js"></script>
-        <noscript><img src="https://ext.samyofox.ninja/noscript.gif" alt=""/></noscript>
+        <noscript><img src="https://ext.samyofox.ninja/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
     </body>
 </html>
