@@ -1,0 +1,86 @@
+body {
+  background-image: url("../images/background.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.links {
+  width: 250px;
+  padding: 4px;
+  text-shadow: 5px 2px 4px black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+p {
+  color: white;
+  text-align: center;
+}
+
+div {
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 0 auto;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  -webkit-filter: drop-shadow(1px 1px 2px black);
+          filter: drop-shadow(1px 1px 2px black);
+  padding: 5px;
+  -webkit-filter: blur(50%);
+          filter: blur(50%);
+}
+
+a {
+  color: white;
+  -webkit-text-decoration-style: underline;
+          text-decoration-style: underline;
+}
+
+button {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px auto;
+  color: lightgray;
+  padding: 4px;
+  outline: none;
+  border: solid black 0px;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+  -webkit-transition: padding 200ms ease-out;
+  transition: padding 200ms ease-out;
+  -webkit-transition: color 150ms ease-out;
+  transition: color 150ms ease-out;
+  -webkit-transition: font-weight 150ms ease-out;
+  transition: font-weight 150ms ease-out;
+}
+
+button:hover {
+  -webkit-transition: background-color 150ms ease-in;
+  transition: background-color 150ms ease-in;
+  -webkit-transition: padding 200ms ease-in;
+  transition: padding 200ms ease-in;
+  -webkit-transition: color 100ms ease-in;
+  transition: color 100ms ease-in;
+  -webkit-transition: font-weight 150ms ease-in;
+  transition: font-weight 150ms ease-in;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 3px;
+  color: white;
+  font-weight: bold;
+}
+
+.button0 {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.themeButton2 {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=theme.css.map */
