@@ -1,50 +1,103 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="images/icon.png" type="image/png" sizes="32x32">
     <title>SamyoFox</title>
-	        <script>window.sa_event=window.sa_event||function(){var a=[].slice.call(arguments);window.sa_event.q?window.sa_event.q.push(a):window.sa_event.q=[a]};</script>
-        <!-- Hotjar Tracking Code for samyofox.ninja -->
-        <script>
-            (function(h,o,t,j,a,r){
-                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                h._hjSettings={hjid:2485539,hjsv:6};
-                a=o.getElementsByTagName('head')[0];
-                r=o.createElement('script');r.async=1;
-                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                a.appendChild(r);
-            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-        </script>
-    </head><body>
+    <script>window.sa_event = window.sa_event || function () { var a = [].slice.call(arguments); window.sa_event.q ? window.sa_event.q.push(a) : window.sa_event.q = [a] };</script>
+    <!-- Hotjar Tracking Code for samyofox.ninja -->
+    <script>
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid: 2485539, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+</head>
 
-        <!--  Links start  -->
-        <div class="links"><p><b>Links</b><br><br>
-            <button class="button0">Homepage</button>
-            <a href="links.html"><button class="button">Links</button></a>
-            <a href="projects.html"><button class="button">Projects</button></a>
-            <a href="gallery.html"><button class="button">Gallery</button></a>
-        </p></div><br>
-        <!--  Links end  -->
+<body>
 
-        <div style="max-width: 200px; padding: 15px;">Hewwo, it's me, Samyofox</div>
+    <!--  Links start  -->
+    <div class="links themed">
+        <p><b>Links</b><br><br>
+            <a href="#"><button onclick="goToHome()" id="homeButton" class="button0">Home</button></a>
+            <a href="#"><button onclick="goToLinks()" id="linksButton" class="button">Links</button></a>
+            <a href="#"><button onclick="goToProjects()" id="projectsButton" class="button">Projects</button></a>
+            <a href="#"><button onclick="goToGallery()" id="galleryButton" class="button">Gallery</button></a>
+        </p>
+    </div><br>
+    <!--  Links end  -->
 
+    <div id="home">
+        <div class="themed" style="max-width: 200px; padding: 15px;">Hewwo, it's me, SamyoFox</div>
+    </div>
 
+    <div id="links" style="display: none;">
+        <div class="themed" style="max-width: 80px; padding: 12px;">My Links:</div><br><br>
 
-
-        <div class="version">Version 1.0, made by 
-            <a href="https://www.youtube.com/yoshomay" target="_blank" title="the not cute">
-            Yoshomay</a>.
+        <div class="links2 themed">
+            <a href="https://www.twitter.com/SamyoFox" title="@SamyoFox">My Twitter</a><br>
+            <a title="left click to copy" onclick="navigator.clipboard.writeText('SamyoFox#9179');"
+                style="text-decoration: underline;">SamyoFox#9179</a><br>
+            <a href="https://t.me/SamyoFox" title="@SamyoFox">My Telegram</a><br>
+            <a href="https://github.com/SamyoFox" title="@SamyoFox">My GitHub</a>
         </div>
+    </div>
 
-        <script>
-            var version = document.getElementsByClassName("version")[0];
-            if (screen.width < 900) {
-                version.remove();
-            }
-        </script>        
-        <script async defer src="https://ext.samyofox.ninja/latest.js"></script>
-        <noscript><img src="https://ext.samyofox.ninja/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
-    </body>
+    <div id="projects" style="display: none;">
+        <div class="themed"  style="max-width: 100px; padding: 12px;">My Projects:</div><br><br>
+
+        <div class="themed" style="max-width: 400px; line-height: 150%; padding: 15px;">
+            <a href="https://github.com/Fisch03/Hanako-Discord">Hanako Discord</a><br>
+            A Discord bot a friend and I made.<br><br>
+
+            <a href="https://github.com/FlyTechVideos/BluescreenSimulator">Bluescreen Simulator</a><br>
+            A program by FlyTech Videos I contribute to.<br><br>
+
+            <a href="https://samyofox.itch.io/fof">Field of Forces</a><br>
+            A game I made together with a friend for a game jam.
+
+        </div>
+    </div>
+
+    <div id="gallery" style="display: none;">
+        <div class="refDiv themed">
+            <a href="images/ref.png" target="_blank">
+                <img src="images/ref2.png" title="ref" alt="ref sheet" class="ref"></a><br>
+            <p style="font-size: 90%; margin: 0;">Click to see full image</p><br>
+        </div><br><br>
+
+
+        <div class="themed" style="max-width: 300px; padding: 15px">
+            <p>Reference sheet of my sona, Luke, base by
+                <a href="https://www.furaffinity.net/view/13613423/" target="_blank" title="refbase">TesxaCoyote</a> on
+                FurAffinity
+            </p>
+        </div>
+    </div>
+
+    <div class="version themed">Version 1.0, made by
+        <a href="https://twitter.com/Yoshomay" target="_blank" title="the cute">
+            Yoshomay</a>.
+    </div>
+
+    <script>
+        var version = document.getElementsByClassName("version")[0];
+        if (screen.width < 900) {
+            version.remove();
+        }
+    </script>
+    <script async defer src="https://ext.samyofox.ninja/latest.js"></script>
+    <script src="pageswitcher.js"></script>
+    <noscript><img src="https://ext.samyofox.ninja/noscript.gif" alt=""
+            referrerpolicy="no-referrer-when-downgrade" /></noscript>
+</body>
+
 </html>

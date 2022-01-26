@@ -2,6 +2,7 @@ body {
   background-image: url("../images/background.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
+
 }
 
 .links {
@@ -16,8 +17,10 @@ p {
   text-align: center;
 }
 
-div {
-  background-color: rgba(0, 0, 0, 0.4);
+.themed {
+  background-color: rgba(29, 29, 29, 0.363);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   margin: 0 auto;
   border-radius: 8px;
   color: white;
