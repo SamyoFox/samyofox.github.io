@@ -1,11 +1,11 @@
 Package: fox-creds-getter
-Version: 1.0.0-fox
+Version: 1.0.0
 Section: base
 Architecture: all
-MD5Sum: e5260efc31b5db6f74496e06a89b934f
-Size: 2812
-Filename: fox-creds-getter_1.0.0-fox_all.ipk
-Description: Automatically gets credentials from several sites for CCCam
+MD5Sum: 1362a39aa9f723c90b90605df2813e9b
+Size: 2240
+Filename: fox-creds-getter_1.0.0_all.ipk
+Description: Automatically gets credentials from several sites and add them to OSCam
 Maintainer: SamyoFox <mail@samyofox.gay>
 Priority: optional
 Source: https://github.com/SamyoFox/fox-creds-getter
