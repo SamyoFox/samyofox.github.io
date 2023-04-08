@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@700&display=swap" rel="stylesheet"> 
+        <style>
+            body{
+                background-color: #2e3959; /* Luke's main fur color */
+                margin: 0%;
+                padding: 0%;
+                font-family: 'Anuphan', sans-serif;
+            }
+            .maincontent {
+                display: flex;
+                flex-flow: wrap;
+                width: 100vw;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                flex-direction: column;
+            }
+            #avatarimg{
+                border-radius: 50%;
+            }
+            .socialButton{
+                width: 50px;
+                height: 50px;
+                border-radius: 15%;
+                border: none;
+                background-color: #0d111a; /* Derived from the main fur color */
+                align-items: center;
+                justify-content: center;
+                transition: background-color 0.2s linear;
+            }
+            .socialButton:hover{
+                background-color: #57607a; /* Also derived from the main fur color */
+                cursor: pointer;
+                
+            }
+            #twitter{
+                background-image: url("twitter.svg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-size: 75%;
+            }
+            #github{
+                background-image: url("github.svg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-size: 75%;
+            }
+            #reddit{
+                background-image: url("reddit.svg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-size: 75%;
+            }
+            #steam{
+                background-image: url("steam.svg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-size: 75%;
+            }
+            #spotify{
+                background-image: url("spotify.svg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 75%;
+            }
+            #discord{
+                background-image: url("discord.svg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 75%;
+            }
+            .break {
+                flex-basis: 100%;
+                height: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="maincontent">
+            <div class="imgContainer">
+                <img id="avatarimg" src="avatar.webp"/>
+            </div>
+            <div class="nameContainer">
+                <h1>SamyoFox</h1>
+            </div>
+            <div class="socialContainer">
+                <a href="https://twitter.com/SamyoFox"><button id="twitter" class="socialButton"></button></a>
+                <a href="https://github.com/SamyoFox"><button id="github" class="socialButton"></button></a>
+                <a href="https://reddit.com/user/SamyoFox"><button id="reddit" class="socialButton"></button></a>
+                <a href="https://steamcommunity.com/id/samyofox/"><button id="steam" class="socialButton"></button></a>
+                <a href="https://open.spotify.com/user/1kgv6vk1da0imuw57w15a76ty"><button id="spotify" class="socialButton"></button></a>
+                <a href="https://discord.com/users/121987758674673664"><button id="discord" class="socialButton"></button></a>
+            </div>
+        </div>
+    </body>
+</html>
