@@ -17,7 +17,7 @@
 
         <style>
             body{
-                background-color: #2e3959; /* Luke's main fur color */
+                background-color: #2e3959; /* Samyo's main fur color */
                 margin: 0%;
                 padding: 0%;
                 font-family: 'Anuphan', sans-serif;
@@ -45,6 +45,7 @@
                 align-items: center;
                 justify-content: center;
                 transition: background-color 0.2s linear;
+                margin: 2px;
             }
             .socialButton:hover{
                 background-color: #57607a; /* Also derived from the main fur color */
@@ -95,6 +96,12 @@
                 background-image: url("mastodon.svg");
                 background-position: center;
                 background-repeat: no-repeat;
+                background-size: 65%;
+            }
+            #instagram{
+                background-image: url("instagram.svg");
+                background-position: center;
+                background-repeat: no-repeat;
                 background-size: 75%;
             }
             #gallery{
@@ -139,12 +146,13 @@
                 <h1>SamyoFox</h1>
             </div>
             <div class="socialContainer">
-                <a href="https://twitter.com/SamyoFox"><button title="I will refuse to call it X" id="twitter" class="socialButton"></button></a>
+                <!-- No more Twitter. <a href="https://twitter.com/SamyoFox"><button title="I will refuse to call it X" id="twitter" class="socialButton"></button></a> -->
                 <a href="https://github.com/SamyoFox"><button id="github" class="socialButton"></button></a>
+                <a href="https://instagram.com/samyofox_"><button id="instagram" class="socialButton"></button></a>
                 <a href="https://steamcommunity.com/id/samyofox/"><button id="steam" class="socialButton"></button></a>
                 <a href="https://discord.com/users/121987758674673664"><button id="discord" class="socialButton"></button></a>
-                <a rel="me" href="https://pounced-on.me/@SamyoFox"><button id="mastodon" class="socialButton"></button></a>
-                <a href="https://photos.samyofox.gay"><button title="Look at all the photos I've taken!" id="gallery" class="socialButton"></button></a>
+                <a rel="me" href="https://pounced-on.me/@SamyoFox"><button title="I don't really use this." id="mastodon" class="socialButton"></button></a>
+                <!-- Maybe look at them some other time when I finally managed to host them reliably. <a href="https://photos.samyofox.gay"><button title="Look at all the photos I've taken!" id="gallery" class="socialButton"></button></a> -->
             </div>
             <div id="email">
                 <h4>Questions? Give me a <a id="email-link" href="mailto:rawr@samyofox.gay">rawr@samyofox.gay</a></h4>
