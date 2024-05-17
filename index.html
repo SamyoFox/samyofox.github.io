@@ -21,6 +21,9 @@
                 margin: 0%;
                 padding: 0%;
                 font-family: 'Anuphan', sans-serif;
+                margin: 0;
+                height: 100%;
+                overflow: hidden;
             }
             .maincontent {
                 display: flex;
@@ -134,6 +137,16 @@
                 color: white;
                 transition: color 0.1s linear;
             }
+            .peek{
+                position: absolute;
+                bottom: -120px;
+                right: 25px;
+                transition: bottom 0.75s;
+                @media only screen and (max-device-width: 480px) {display: none;}
+            }
+            .peek:hover{
+                bottom: 0;
+            }
         </style>
         <title>SamyoFox</title>
     </head>
@@ -156,6 +169,9 @@
             </div>
             <div id="email">
                 <h4>Questions? Give me a <a id="email-link" href="mailto:rawr@samyofox.gay">rawr@samyofox.gay</a></h4>
+            </div>
+            <div class="peek">
+                <img title="blep :P (by JVRex)" width="200px" height="200px" src="blep.avif"/>
             </div>
         </div>
     </body>
