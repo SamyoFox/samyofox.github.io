@@ -142,10 +142,40 @@
                 bottom: -120px;
                 right: 25px;
                 transition: bottom 0.75s;
+                background-image: url('blep.avif');
+                background-size: contain;
+                width: 200px;
+                height: 200px;
                 @media only screen and (max-device-width: 480px) {display: none;}
+            }
+            .boop{
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                left: 30px;
+                top: 100px;
+                cursor: pointer;
             }
             .peek:hover{
                 bottom: 0;
+            }
+            .heart{
+                width: 25px;
+                height: 25px;
+                left: -20px;
+                top: 105px;
+                position: absolute;
+                pointer-events: none;
+            }
+            @keyframes fadeIn {
+                from { opacity: 100; }
+                to { opacity: 0; }
+            }
+            .heartTop {
+                transition: top 2s;
+                top: -10px;
+                animation: fadeIn 1s;
+                animation-delay: 0s;
             }
         </style>
         <title>SamyoFox</title>
@@ -159,7 +189,6 @@
                 <h1>SamyoFox</h1>
             </div>
             <div class="socialContainer">
-                <!-- No more Twitter. <a href="https://twitter.com/SamyoFox"><button title="I will refuse to call it X" id="twitter" class="socialButton"></button></a> -->
                 <a href="https://github.com/SamyoFox"><button id="github" class="socialButton"></button></a>
                 <a href="https://instagram.com/samyofox_"><button id="instagram" class="socialButton"></button></a>
                 <a href="https://steamcommunity.com/id/samyofox/"><button id="steam" class="socialButton"></button></a>
@@ -171,8 +200,28 @@
                 <h4>Questions? Give me a <a id="email-link" href="mailto:rawr@samyofox.gay">rawr@samyofox.gay</a></h4>
             </div>
             <div class="peek">
-                <img title="blep :P (by JVRex)" width="200px" height="200px" src="blep.avif"/>
+                <div class="boop" title="No booping!" onclick="spawnHeart()"></div>
+                <div id="heart-container">
+                </div>
             </div>
         </div>
+        <script>
+            function spawnHeart(){
+                const heartNum = document.getElementById("heart-container").childElementCount+1;
+                let div = document.createElement("div");
+                div.className = "heart";
+                div.id = "heart"+heartNum;
+                let heartObject = document.createElement("object");
+                heartObject.data = "heart.svg";
+                div.append(heartObject);
+                document.getElementById("heart-container").append(div);
+                setTimeout(() => {
+                    document.getElementById("heart"+heartNum).classList.add("heartTop");
+                }, 25);
+                setTimeout(() => {
+                    document.getElementById("heart"+heartNum).remove();
+                }, 1000);
+            }
+        </script>
     </body>
 </html>
