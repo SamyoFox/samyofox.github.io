@@ -17,7 +17,10 @@
 
         <style>
             body{
-                background-color: #2e3959; /* Samyo's main fur color */
+                background-image: url("background.avif"); /* Samyo's main fur color */
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
                 margin: 0%;
                 padding: 0%;
                 font-family: 'Anuphan', sans-serif;
@@ -34,6 +37,18 @@
                 align-items: center;
                 color: white;
                 flex-direction: column;
+            }
+            .centralMainContent{
+                display: flex;
+                flex-flow: wrap;
+                width: 50vw;
+                height: 75vh;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                flex-direction: column;
+                backdrop-filter: blur(10px) contrast(40%) drop-shadow(4px 4px 10px black);
+                border-radius: 25px;
             }
             #avatarimg{
                 border-radius: 50%;
@@ -149,6 +164,42 @@
                 color: white;
                 transition: color 0.1s linear;
             }
+            .backgroundAuthorLink:link{
+                text-decoration: none;
+                color: white;
+                transition: color 0.1s linear;
+            }
+            .backgroundAuthorLink:hover{
+                text-decoration: none;
+                color: rgb(197, 197, 197);
+                transition: color 0.1s linear;
+            }
+            .backgroundAuthorLink:active{
+                text-decoration: none;
+                color: rgb(197, 197, 197);
+                transition: color 0.1s linear;
+            }
+            .backgroundAuthorLink:visited{
+                text-decoration: none;
+                color: white;
+                transition: color 0.1s linear;
+            }
+            .backgroundInfo{
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+                width: fit-content;
+                height: 8vh;
+                backdrop-filter: blur(10px) contrast(40%) drop-shadow(4px 4px 10px black);
+                border-radius: 15px;
+                align-content: center;
+                text-align: left;
+                padding-right: 1%;
+                padding-left: 1%;
+            }
+            .backgroundInfo span {
+                margin-left: 5px;
+            }
             .peek{
                 position: absolute;
                 bottom: -120px;
@@ -200,28 +251,50 @@
                 a.appendChild(r);
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
         </script>
+        <script>
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    let availableBackgrounds = JSON.parse(xmlHttp.responseText);
+                    let backgroundIdToUse = Math.floor(Math.random() * (Math.floor(availableBackgrounds.length) - Math.ceil(0)) + Math.ceil(0));
+                    let backgroundObject = availableBackgrounds[backgroundIdToUse];
+                    document.getElementById("location").innerHTML = backgroundObject["location"];
+                    document.getElementById("author").href = backgroundObject["author_url"];
+                    document.getElementById("author").innerHTML = backgroundObject["author"];
+                    document.body.style.backgroundImage = "url(\"" + backgroundObject["file"] + "\")";
+                }
+            }
+            xmlHttp.open("GET", "backgrounds.json", true); // true for asynchronous
+            xmlHttp.send(null);
+        </script>
         <title>SamyoFox</title>
     </head>
     <body>
         <div class="maincontent">
-            <div class="imgContainer">
-                <img title="Avatar by @OggyOsbourne (Twitter)" id="avatarimg" width="256" height="256" src="avatar.avif"/>
+            <div class="centralMainContent">
+                <div class="imgContainer">
+                    <img title="Avatar by @OggyOsbourne (Twitter)" id="avatarimg" width="256" height="256" src="avatar.avif"/>
+                </div>
+                <div class="nameContainer">
+                    <h1>SamyoFox</h1>
+                </div>
+                <div class="socialContainer">
+                    <a href="https://instagram.com/samyofox_"><button title="Mainly active here" id="instagram" class="socialButton"></button></a>
+                    <a href="https://t.me/SamyoFoxPhotos"><button title="My photo channel :D" id="telegram" class="socialButton"></button></a>
+                    <a href="https://steamcommunity.com/id/samyofox/"><button title="Look at what I play :3" id="steam" class="socialButton"></button></a>
+                    <a href="https://discord.com/users/121987758674673664"><button title="Do Discord links even work?" id="discord" class="socialButton"></button></a>
+                    <a href="https://github.com/SamyoFox"><button title="Why did I put this here?" id="github" class="socialButton"></button></a>
+                    <a rel="me" href="https://pounced-on.me/@SamyoFox"><button title="I don't really use this." id="mastodon" class="socialButton"></button></a>
+                    <a href="https://www.furtrack.com/user/SamyoFox/photography"><button title="Look at some photos I've taken!" id="gallery" class="socialButton"></button></a>
+                </div>
+                <div id="email">
+                    <h4 id="normal">Questions? Give me a <a class="email-link" href="mailto:rawr@samyofox.gay">rawr@samyofox.gay</a></h4>
+                    <h4 id="notFirefox">Use <a class="email-link" href="https://getfirefox.com">Firefox</a>.</h4>
+                </div>
             </div>
-            <div class="nameContainer">
-                <h1>SamyoFox</h1>
-            </div>
-            <div class="socialContainer">
-                <a href="https://instagram.com/samyofox_"><button title="Mainly active here" id="instagram" class="socialButton"></button></a>
-                <a href="https://t.me/SamyoFoxPhotos"><button title="My photo channel :D" id="telegram" class="socialButton"></button></a>
-                <a href="https://steamcommunity.com/id/samyofox/"><button title="Look at what I play :3" id="steam" class="socialButton"></button></a>
-                <a href="https://discord.com/users/121987758674673664"><button title="Do Discord links even work?" id="discord" class="socialButton"></button></a>
-                <a href="https://github.com/SamyoFox"><button title="Why did I put this here?" id="github" class="socialButton"></button></a>
-                <a rel="me" href="https://pounced-on.me/@SamyoFox"><button title="I don't really use this." id="mastodon" class="socialButton"></button></a>
-                <a href="https://www.furtrack.com/user/SamyoFox/photography"><button title="Look at some photos I've taken!" id="gallery" class="socialButton"></button></a>
-            </div>
-            <div id="email">
-                <h4 id="normal">Questions? Give me a <a class="email-link" href="mailto:rawr@samyofox.gay">rawr@samyofox.gay</a></h4>
-                <h4 id="notFirefox">Use <a class="email-link" href="https://getfirefox.com">Firefox</a>.</h4>
+            <div class="backgroundInfo">
+                <span>📍</span><span id="location">Please wait</span><br>
+                <span>📷&nbsp;<a class="backgroundAuthorLink" id="author" href="#https://bsky.app/profile/stejf.bsky.social">Please wait</a></span>
             </div>
             <div class="peek" title="Blep! (by JVrex)">
                 <div class="boop" title="No booping!" onclick="spawnHeart()"></div>
@@ -254,5 +327,7 @@
                 }, 1000);
             }
         </script>
+        <!-- 100% privacy-first analytics -->
+        <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     </body>
 </html>
