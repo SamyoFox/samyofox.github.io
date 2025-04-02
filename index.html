@@ -149,41 +149,6 @@
                 background-repeat: no-repeat;
                 background-size: 75%;
             }
-            .email {
-                @media only screen and (max-device-width: 480px) {
-                    display: none;
-                }
-            }
-            .break {
-                flex-basis: 100%;
-                height: 0;
-            }
-            #normal{
-                display: none;
-            }
-            #notFirefox{
-                display: none;
-            }
-            .email-link:link{
-                text-decoration: none;
-                color: white;
-                transition: color 0.1s linear;
-            }
-            .email-link:hover{
-                text-decoration: none;
-                color: rgb(197, 197, 197);
-                transition: color 0.1s linear;
-            }
-            .email-link:active{
-                text-decoration: none;
-                color: rgb(197, 197, 197);
-                transition: color 0.1s linear;
-            }
-            .email-link:visited{
-                text-decoration: none;
-                color: white;
-                transition: color 0.1s linear;
-            }
             .backgroundAuthorLink:link{
                 text-decoration: none;
                 color: white;
@@ -312,10 +277,6 @@
                     <a rel="me" href="https://pounced-on.me/@SamyoFox"><button title="I don't really use this." id="mastodon" class="socialButton"></button></a>
                     <a href="https://www.furtrack.com/user/SamyoFox/photography"><button title="Look at some photos I've taken!" id="gallery" class="socialButton"></button></a>
                 </div>
-                <div id="email">
-                    <h4 id="normal">Questions? Give me a <a class="email-link" href="mailto:rawr@samyofox.gay">rawr@samyofox.gay</a></h4>
-                    <h4 id="notFirefox">Use <a class="email-link" href="https://getfirefox.com">Firefox</a>.</h4>
-                </div>
             </div>
             <div class="backgroundInfo">
                 <span>📍</span><span id="location">Please wait</span><br>
@@ -328,13 +289,7 @@
             </div>
         </div>
         <script>
-            if (!navigator.userAgent.includes("Firefox")) {
-                // Fuck you.
-                document.getElementById("notFirefox").style.display = "block";
-            } else {
-                // Good boy *pat* *pat*
-                document.getElementById("normal").style.display = "block";
-            }
+            // Good boy *pat* *pat*
             function spawnHeart(){
                 const heartNum = document.getElementById("heart-container").childElementCount+1;
                 let div = document.createElement("div");
