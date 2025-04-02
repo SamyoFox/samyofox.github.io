@@ -37,6 +37,7 @@
                 align-items: center;
                 color: white;
                 flex-direction: column;
+                
             }
             .centralMainContent{
                 display: flex;
@@ -49,10 +50,19 @@
                 flex-direction: column;
                 backdrop-filter: blur(10px) contrast(40%) drop-shadow(4px 4px 10px black);
                 border-radius: 25px;
+                @media only screen and (max-device-width: 480px) {
+                    width: 90vw;
+                    height: 70vh;
+                    font-size: 48px;
+                }
             }
             #avatarimg{
                 border-radius: 50%;
                 border: 5px solid #0d111a;
+                width: 18vw;
+                @media only screen and (max-device-width: 480px) {
+                    width: 70vw;
+                }
             }
             .socialButton{
                 width: 50px;
@@ -64,6 +74,10 @@
                 justify-content: center;
                 transition: background-color 0.2s linear;
                 margin: 2px;
+                @media only screen and (max-device-width: 480px) {
+                    width: 10vw;
+                    height: 5vh;
+                }
             }
             .socialButton:hover{
                 background-color: #57607a; /* Also derived from the main fur color */
@@ -196,6 +210,11 @@
                 text-align: left;
                 padding-right: 1%;
                 padding-left: 1%;
+                @media only screen and (max-device-width: 480px){
+                    font-size: 36px;
+                    bottom: 25px;
+                    left: 5vw;
+                }
             }
             .backgroundInfo span {
                 margin-left: 5px;
@@ -273,7 +292,7 @@
         <div class="maincontent">
             <div class="centralMainContent">
                 <div class="imgContainer">
-                    <img title="Avatar by @OggyOsbourne (Twitter)" id="avatarimg" width="256" height="256" src="avatar.avif"/>
+                    <img title="Avatar by @OggyOsbourne (Twitter)" id="avatarimg" src="avatar.avif"/>
                 </div>
                 <div class="nameContainer">
                     <h1>SamyoFox</h1>
