@@ -50,9 +50,9 @@
                 }
             }
             #avatarimg{
-                border-radius: 50%;
-                border: 5px solid #0d111a;
-                width: 18vw;
+                /*border-radius: 50%;
+                border: 5px solid #0d111a;*/
+                width: 22vw;
                 @media only screen and (max-device-width: 480px) {
                     width: 70vw;
                 }
@@ -78,65 +78,65 @@
                 
             }
             #twitter{
-                background-image: url("twitter.svg");
+                background-image: url("icons/twitter.svg");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-size: 75%;
             }
             #github{
-                background-image: url("github.svg");
+                background-image: url("icons/github.svg");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-size: 75%;
             }
             #reddit{
-                background-image: url("reddit.svg");
+                background-image: url("icons/reddit.svg");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-size: 75%;
             }
             #steam{
-                background-image: url("steam.svg");
+                background-image: url("icons/steam.svg");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-size: 75%;
             }
             #spotify{
-                background-image: url("spotify.svg");
+                background-image: url("icons/spotify.svg");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: 75%;
             }
             #discord{
-                background-image: url("discord.svg");
+                background-image: url("icons/discord.svg");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: 75%;
             }
             #mastodon{
-                background-image: url("mastodon.svg");
+                background-image: url("icons/mastodon.svg");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: 65%;
             }
             #instagram{
-                background-image: url("instagram.svg");
+                background-image: url("icons/instagram.svg");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: 75%;
             }
             #gallery{
-                background-image: url("furtrack.avif");
+                background-image: url("icons/furtrack.avif");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: 75%;
             }
             #telegram{
-                background-image: url("telegram.svg");
+                background-image: url("icons/telegram.svg");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: 75%;
@@ -188,7 +188,7 @@
                 bottom: -120px;
                 right: 25px;
                 transition: bottom 0.75s;
-                background-image: url('blep.avif');
+                background-image: url('assets/blep.avif');
                 background-size: contain;
                 width: 200px;
                 height: 200px;
@@ -244,10 +244,10 @@
                     document.getElementById("location").innerHTML = backgroundObject["location"];
                     document.getElementById("author").href = backgroundObject["author_url"];
                     document.getElementById("author").innerHTML = backgroundObject["author"];
-                    document.body.style.backgroundImage = "url(\"" + backgroundObject["file"] + "\")";
+                    document.body.style.backgroundImage = "url(\"backgrounds/" + backgroundObject["file"] + "\")";
                 }
             }
-            xmlHttp.open("GET", "backgrounds.json", true); // true for asynchronous
+            xmlHttp.open("GET", "backgrounds/backgrounds.json", true); // true for asynchronous
             xmlHttp.send(null);
         </script>
         <title>SamyoFox</title>
@@ -256,11 +256,11 @@
         <div class="maincontent">
             <div class="centralMainContent">
                 <div class="imgContainer">
-                    <img title="Avatar by @OggyOsbourne (Twitter)" id="avatarimg" src="avatar.avif"/>
+                    <img title="Badge by @skruffmutt (Twitter)" id="avatarimg" src="assets/badge.avif"/>
                 </div>
-                <div class="nameContainer">
+                <!--<div class="nameContainer">
                     <h1>SamyoFox</h1>
-                </div>
+                </div>-->
                 <div class="socialContainer">
                     <a href="https://instagram.com/samyofox_"><button title="Mainly active here" id="instagram" class="socialButton"></button></a>
                     <a href="https://t.me/SamyoFoxPhotos"><button title="My photo channel :D" id="telegram" class="socialButton"></button></a>
@@ -289,7 +289,7 @@
                 div.className = "heart";
                 div.id = "heart"+heartNum;
                 let heartObject = document.createElement("object");
-                heartObject.data = "heart.svg";
+                heartObject.data = "assets/heart.svg";
                 div.append(heartObject);
                 document.getElementById("heart-container").append(div);
                 setTimeout(() => {
