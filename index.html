@@ -185,6 +185,14 @@
                 top: 100px;
                 cursor: pointer;
             }
+            .boop-sixseven{
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                left: 70px;
+                top: 77px;
+                cursor: pointer;
+            }
             .peek:hover{
                 bottom: -10px;
             }
@@ -292,23 +300,36 @@
                 <span>📍</span><span id="location">Please wait</span><br>
                 <span>📷&nbsp;<a class="backgroundAuthorLink" id="author" href="#https://bsky.app/profile/stejf.bsky.social">Please wait</a></span>
             </div>
-            <div class="peek" title="Blep! (by JVrex)">
-                <div class="boop" title="No booping!" onclick="spawnHeart()"></div>
+            <div class="peek" id="peek" title="Blep! (by JVrex)">
+                <div class="boop" id="boop" title="No booping!" onclick="spawnHeart()"></div>
                 <div id="heart-container">
                 </div>
             </div>
         </div>
         <script>
             // Good boy *pat* *pat*
+            let boopCount = 0;
             function spawnHeart(){
                 let div = document.createElement("div");
                 div.className = "heart";
                 let heartObject = document.createElement("object");
                 heartObject.data = "assets/heart.svg";
                 div.append(heartObject);
+                boopCount++;
                 document.getElementById("heart-container").append(div);
                 requestAnimationFrame(() => div.classList.add("heartTop"));
                 setTimeout(() => div.remove(), 1000);
+                if (boopCount == 67) {
+                    document.getElementById("peek").style.backgroundImage = "url('assets/sixseven.avif')";
+                    document.getElementById("peek").title = "67! (by Oggy123)";
+                    document.getElementById("boop").classList.remove("boop");
+                    document.getElementById("boop").classList.add("boop-sixseven");
+                } else if (boopCount == 68) {
+                    document.getElementById("peek").style.backgroundImage = "url('assets/blep.avif')";
+                    document.getElementById("peek").title = "Blep! (by JVrex)";
+                    document.getElementById("boop").classList.remove("boop-sixseven");
+                    document.getElementById("boop").classList.add("boop");
+                }
             }
         </script>
         <!-- 100% privacy-first analytics -->
