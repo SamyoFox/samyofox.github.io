@@ -193,15 +193,18 @@
                 position: absolute;
                 pointer-events: none;
             }
-            @keyframes fadeIn {
-                from { opacity: 100; }
-                to { opacity: 0; }
+            @keyframes floatUp {
+                from {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                to {
+                    opacity: 0;
+                    transform: translateY(-115px);
+                }
             }
             .heartTop {
-                transition: top 2s;
-                top: -10px;
-                animation: fadeIn 1s;
-                animation-delay: 0s;
+                animation: floatUp 1s forwards;
             }
             @media only screen and (max-width: 600px) {
                 .maincontent {
@@ -294,20 +297,14 @@
         <script>
             // Good boy *pat* *pat*
             function spawnHeart(){
-                const heartNum = document.getElementById("heart-container").childElementCount+1;
                 let div = document.createElement("div");
                 div.className = "heart";
-                div.id = "heart"+heartNum;
                 let heartObject = document.createElement("object");
                 heartObject.data = "assets/heart.svg";
                 div.append(heartObject);
                 document.getElementById("heart-container").append(div);
-                setTimeout(() => {
-                    document.getElementById("heart"+heartNum).classList.add("heartTop");
-                }, 25);
-                setTimeout(() => {
-                    document.getElementById("heart"+heartNum).remove();
-                }, 1000);
+                requestAnimationFrame(() => div.classList.add("heartTop"));
+                setTimeout(() => div.remove(), 1000);
             }
         </script>
         <!-- 100% privacy-first analytics -->
