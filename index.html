@@ -2,72 +2,82 @@
 <html lang="en">
     <head>
         <style>
+            * {
+                box-sizing: border-box;
+            }
             body{
                 background-image: url(""); /* Samyo's main fur color */
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
-                margin: 0%;
-                padding: 0%;
-                font-family: 'Verdana', sans-serif;
                 margin: 0;
-                height: 100%;
-                overflow: hidden;
+                font-family: 'Verdana', sans-serif;
+                min-height: 100vh;
+                min-height: 100svh;
+                overflow-x: hidden;
             }
             .maincontent {
                 display: flex;
-                flex-flow: wrap;
-                width: 100vw;
-                height: 100vh;
+                position: relative;
+                width: 100%;
+                min-height: 100vh;
+                min-height: 100svh;
                 justify-content: center;
                 align-items: center;
                 color: white;
                 flex-direction: column;
-                
             }
             .centralMainContent{
                 display: flex;
-                flex-flow: wrap;
+                gap: 16px;
                 width: 50vw;
                 height: 75vh;
-                max-height: 80%;
                 justify-content: center;
                 align-items: center;
                 color: white;
                 flex-direction: column;
                 backdrop-filter: blur(10px) contrast(40%) drop-shadow(4px 4px 10px black);
                 border-radius: 25px;
-                @media only screen and (max-device-width: 480px) {
-                    width: 90vw;
-                    height: 70vh;
-                    font-size: 48px;
-                    padding-top: 5vh;
-                    top: 5vh;
-                    position: absolute;
-                }
+            }
+            .imgContainer {
+                display: flex;
+                flex: 0 1 auto;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: min(22vw, calc(100% - 124px));
+                min-width: 0;
+                min-height: 0;
             }
             #avatarimg{
                 /*border-radius: 50%;
                 border: 5px solid #0d111a;*/
                 width: 22vw;
-                @media only screen and (max-device-width: 480px) {
-                    width: 70vw;
-                }
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
             }
             .socialButton{
+                display: inline-flex;
                 width: 50px;
                 height: 50px;
+                padding: 0;
+                flex: 0 0 auto;
                 border-radius: 15%;
                 border: none;
                 background-color: #0d111a; /* Derived from the main fur color */
                 align-items: center;
                 justify-content: center;
                 transition: background-color 0.2s linear;
-                margin: 2px;
-                @media only screen and (max-device-width: 480px) {
-                    width: 10vw;
-                    height: 5vh;
-                }
+                margin: 0;
+            }
+            .socialContainer {
+                display: flex;
+                flex: 0 0 auto;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+                max-width: 100%;
             }
             .socialButton:hover{
                 background-color: #57607a; /* Also derived from the main fur color */
@@ -143,25 +153,19 @@
                 bottom: 10px;
                 left: 10px;
                 width: fit-content;
-                height: 8vh;
+                max-width: calc(100vw - 20px);
                 backdrop-filter: blur(10px) contrast(40%) drop-shadow(4px 4px 10px black);
                 border-radius: 15px;
-                align-content: center;
+                padding: 8px 12px;
                 text-align: left;
-                padding-right: 1%;
-                padding-left: 1%;
-                @media only screen and (max-device-width: 480px){
-                    font-size: 36px;
-                    bottom: 25px;
-                    left: 5vw;
-                    height: 6vh;
-                }
+                font-size: 14px;
+                line-height: 1.5;
             }
             .backgroundInfo span {
                 margin-left: 5px;
             }
             .peek{
-                position: absolute;
+                position: fixed;
                 bottom: -120px;
                 right: 25px;
                 transition: bottom 0.75s;
@@ -169,7 +173,6 @@
                 background-size: contain;
                 width: 200px;
                 height: 200px;
-                @media only screen and (max-device-width: 480px) {display: none;}
             }
             .boop{
                 position: absolute;
@@ -199,6 +202,45 @@
                 top: -10px;
                 animation: fadeIn 1s;
                 animation-delay: 0s;
+            }
+            @media only screen and (max-width: 600px) {
+                .maincontent {
+                    min-height: 100vh;
+                    min-height: 100svh;
+                    padding: 24px 16px 100px;
+                }
+                .centralMainContent {
+                    width: min(100%, 30rem);
+                    height: auto;
+                    min-height: 0;
+                    padding: 24px 16px;
+                    gap: 16px;
+                }
+                .imgContainer {
+                    flex: 0 0 auto;
+                    height: auto;
+                }
+                #avatarimg {
+                    display: block;
+                    width: min(70vw, 20rem);
+                    height: auto;
+                    max-height: none;
+                }
+                .socialButton {
+                    width: 44px;
+                    height: 44px;
+                }
+                .socialContainer {
+                    max-width: 240px;
+                }
+                .backgroundInfo {
+                    bottom: max(10px, env(safe-area-inset-bottom));
+                    left: 10px;
+                    font-size: clamp(12px, 3.5vw, 14px);
+                }
+                .peek {
+                    display: none;
+                }
             }
         </style>
         <script>
