@@ -5,11 +5,14 @@
             * {
                 box-sizing: border-box;
             }
-            body{
-                background-image: url(""); /* Samyo's main fur color */
+            html {
+                min-height: 100%;
+                background-color: #0d111a;
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
+            }
+            body{
                 margin: 0;
                 font-family: 'Verdana', sans-serif;
                 min-height: 100vh;
@@ -257,7 +260,7 @@
                     document.getElementById("location").innerHTML = backgroundObject["location"];
                     document.getElementById("author").href = backgroundObject["author_url"];
                     document.getElementById("author").innerHTML = backgroundObject["author"];
-                    document.body.style.backgroundImage = "url(\"backgrounds/" + backgroundObject["file"] + "\")";
+                    document.documentElement.style.backgroundImage = "url(\"backgrounds/" + backgroundObject["file"] + "\")";
                 }
             }
             xmlHttp.open("GET", "backgrounds/backgrounds.json", true); // true for asynchronous
